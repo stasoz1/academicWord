@@ -36,38 +36,38 @@ class App extends Component {
   }
   getWords = () => {
     const singleWord = {
-      "translationResult": null,
-      "contextResult": [
+      translationResult: null,
+      contextResult: [
         {
-          "confidence": 0.2987,
-          "text": "матері",
-          "posTag": "NOUN"
+          confidence: 0.2987,
+          text: "матері",
+          posTag: "NOUN"
         },
         {
-          "confidence": 0.2315,
-          "text": "матір'ю",
-          "posTag": "NOUN"
+          confidence: 0.2315,
+          text: "матір'ю",
+          posTag: "NOUN"
         },
         {
-          "confidence": 0.1985,
-          "text": "мати",
-          "posTag": "NOUN"
+          confidence: 0.1985,
+          text: "мати",
+          posTag: "NOUN"
         },
         {
-          "confidence": 0.0828,
-          "text": "мама",
-          "posTag": "NOUN"
+          confidence: 0.0828,
+          text: "мама",
+          posTag: "NOUN"
         }
       ],
-      "synonyms": [
+      synonyms: [
         "mom",
         "mama",
         "mommy",
         "mother",
         "mum"
       ],
-      "lookupExamples": {
-        "fromLanguageExamples": [
+      lookupExamples: {
+        fromLanguageExamples: [
           "I hope your mother's condition improves.",
           "Here is a picture of my mother's heart.",
           "And he delivered him to his mother.",
@@ -84,7 +84,7 @@ class App extends Component {
           "... basic minerals from the organism of mother to the fetus.",
           "... the child know it from his mother's belly."
         ],
-        "toLanguageExamples": [
+        toLanguageExamples: [
           "Я сподіваюся, стан матері поліпшується.",
           "Ось картина серце моєї матері.",
           "І його Він віддав його матері.",
@@ -105,10 +105,10 @@ class App extends Component {
     }
 
     const sentense = {
-      "translationResult": "моя мати",
-      "contextResult": [],
-      "synonyms": [],
-      "lookupExamples": null
+      translationResult: "моя мати",
+      contextResult: [],
+      synonyms: [],
+      lookupExamples: null
     }
     
     axios.post("https://academic-words-api.azurewebsites.net/api/word/info", {
