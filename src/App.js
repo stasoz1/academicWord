@@ -111,42 +111,40 @@ class App extends Component {
       lookupExamples: null
     }
     
-    axios.post("https://academic-words-api.azurewebsites.net/api/word/info", {
-      from: this.state.fChosenLang,
-      to: this.state.secChosenLang,
-      text: String(document.querySelector(".MuiOutlinedInput-inputAdornedEnd").value)
-    })
+    // axios.post("https://academic-words-api.azurewebsites.net/api/word/info", {
+    //   from: this.state.fChosenLang,
+    //   to: this.state.secChosenLang,
+    //   text: String(document.querySelector(".MuiOutlinedInput-inputAdornedEnd").value)
+    // })
     
-    .then((response) => {
-      
-      console.log(response)
+    //.then((response) => {
       let translateList = []
-      response.data.contextResult.forEach((item) => {
+      singleWord.contextResult.forEach((item) => {
         translateList.push(<Translation text={item.text}/> )
         
       })
       console.log(translateList)
       ReactDOM.render (translateList, document.querySelector("#translationList"))
-      const exLength = response.data.lookupExamples.fromLanguageExamples.length
+      const exLength = singleWord.lookupExamples.fromLanguageExamples.length
 
       let exampleList =[]
       for (let i = 0; i<exLength; i++) {
-        exampleList.push(<Example lText = {response.data.lookupExamples.fromLanguageExamples[i]}
-        rText = {response.data.lookupExamples.toLanguageExamples[i]}
-        translations={response.data.synonyms.map(e => e.toLowerCase())}
-        synonyms={response.data.contextResult.map(c => c.text.toLowerCase())}/>)
+        exampleList.push(<Example lText = {singleWord.lookupExamples.fromLanguageExamples[i]}
+        rText = {singleWord.lookupExamples.toLanguageExamples[i]}
+        translations={singleWord.synonyms.map(e => e.toLowerCase())}
+        synonyms={singleWord.contextResult.map(c => c.text.toLowerCase())}/>)
       }
       ReactDOM.render (exampleList, document.querySelector("#exampleList"))
 
       let synonymList =[]
-      response.data.synonyms.forEach (item => {
+      singleWord.synonyms.forEach (item => {
         synonymList.push (<span className="synonymListItem">{item}</span>)
       }) 
       ReactDOM.render(synonymList,document.querySelector("#synonymList"))
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    //})
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
   firstDDSent = (e) => {
     document.addEventListener("DOMContentLoaded", () => {
